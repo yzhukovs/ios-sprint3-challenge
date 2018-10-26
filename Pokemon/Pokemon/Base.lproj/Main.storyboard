@@ -33,6 +33,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cellImage" destination="k5k-h3-hAi" id="bqS-fe-hq9"/>
+                                    <segue destination="kPC-He-tS1" kind="show" identifier="toDetail" id="Pdv-NO-kuN"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -89,7 +90,7 @@
                                     <action selector="savePokemon:" destination="kPC-He-tS1" eventType="touchUpInside" id="TtA-0C-Zcy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-jk-Ge9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-jk-Ge9">
                                 <rect key="frame" x="107" y="476" width="149" height="116"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="116" id="hb4-0H-nTZ"/>
@@ -170,4 +171,7 @@
             <point key="canvasLocation" x="-711" y="103"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pdv-NO-kuN"/>
+    </inferredMetricsTieBreakers>
 </document>
