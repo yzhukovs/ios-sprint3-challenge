@@ -22,7 +22,7 @@ This screen recording previews the look and feel of a completed project that mee
 
 ## Requirements
 
-This project uses the **pokeapi.co API** ([API Documentation](https://pokeapi.co/docsv2/)). Use this API to search for pokemons and retrieve their information.
+This project uses the **pokeapi.co API** ([API Documentation](https://pokeapi.co/docs/v2.html)). Use this API to search for pokemons and retrieve their information.
 
 The requirements for this project are as follows:
 
