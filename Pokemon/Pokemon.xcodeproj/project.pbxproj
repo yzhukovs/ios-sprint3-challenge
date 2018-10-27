@@ -17,6 +17,7 @@
 		4404A1732183704F00672D85 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404A1722183704F00672D85 /* Model.swift */; };
 		4404A175218370A600672D85 /* PokedexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404A174218370A600672D85 /* PokedexController.swift */; };
 		4404A1772183814100672D85 /* ImageCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404A1762183814100672D85 /* ImageCellTableViewCell.swift */; };
+		4404A179218424C700672D85 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404A178218424C700672D85 /* Fetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4404A1722183704F00672D85 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4404A174218370A600672D85 /* PokedexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexController.swift; sourceTree = "<group>"; };
 		4404A1762183814100672D85 /* ImageCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellTableViewCell.swift; sourceTree = "<group>"; };
+		4404A178218424C700672D85 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				4404A1612183640E00672D85 /* Assets.xcassets */,
 				4404A1632183640E00672D85 /* LaunchScreen.storyboard */,
 				4404A1662183640E00672D85 /* Info.plist */,
+				4404A178218424C700672D85 /* Fetcher.swift */,
 			);
 			path = Pokemon;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4404A175218370A600672D85 /* PokedexController.swift in Sources */,
+				4404A179218424C700672D85 /* Fetcher.swift in Sources */,
 				4404A1772183814100672D85 /* ImageCellTableViewCell.swift in Sources */,
 				4404A1732183704F00672D85 /* Model.swift in Sources */,
 				4404A16F21836C8200672D85 /* DetailViewController.swift in Sources */,

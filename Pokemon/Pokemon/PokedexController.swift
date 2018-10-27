@@ -20,43 +20,12 @@ class PokedexController {
     var pokemons:[Pokemon]=[]
     
     func fetchPokemon(name: String, completion: @escaping (Pokemon?, Error?) -> Void){
-        let url = baseURL?
+        guard let url = baseURL?
             .appendingPathComponent("pokemon")
             .appendingPathComponent(name.lowercased())
-            .appendingPathComponent("")
-        print(url!)
-        var request = URLRequest(url: url!)
-        request.httpMethod = "GET"
+            .appendingPathComponent("") else {return}
         
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, error) in
-            if let error = error {
-                NSLog("Error fetching pokemin\(error)")
-                completion(nil, error)
-            }
-            guard let data = data else {
-                NSLog("Error fetching pokemon")
-                completion(nil, error)
-                return
-            }
-            
-            var pokemon: Pokemon?
-            do {
-                pokemon = try JSONDecoder().decode(Pokemon.self, from: data)
-            }
-            catch{
-                NSLog("Error decoding pokemon:\(error)")
-                completion(nil, error)
-                
-            }
-            if let spriteURL = pokemon?.sprites.filter({$0.value != nil}).randomElement()?.value {
-                ImageLoader.fetchImage(from: URL(string:spriteURL)){ image in
-                    pokemon?.image = image
-                    completion(pokemon, nil)
-                }
-                
-            }
-        }
-        dataTask.resume()
+        Fetcher.GET(url:url, completion:completion)
     }
     
     func savePokemons(pokemon:Pokemon){

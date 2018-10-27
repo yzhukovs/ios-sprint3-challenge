@@ -31,8 +31,17 @@ class DetailViewController: UIViewController, UISearchBarDelegate {
             
             self.poke = pokemon
             
-            DispatchQueue.main.async {
-                self.updateViews()
+            if let spriteURL = self.poke?.sprites.filter({$0.value != nil}).randomElement()?.value {
+                ImageLoader.fetchImage(from: URL(string:spriteURL)){ image in
+                    self.poke?.image = image
+                    DispatchQueue.main.async {
+                        self.updateViews()
+                    }
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.updateViews()
+                }
             }
         })
     }
