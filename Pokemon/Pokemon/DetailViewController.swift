@@ -44,17 +44,7 @@ class DetailViewController: UIViewController, UISearchBarDelegate {
             typeLabel?.text = "Type: \(poke?.types.map({$0.type.name}).joined(separator:" , ") ?? "")"
             abilitiesLabel?.text = "Abilities: \(poke?.abilities.map({$0.ability.name}).joined(separator:" , ") ?? "")"
             saveButton.setTitle("Save Pokemon", for: .normal)
-            
-            if let spriteURL = pokemon.sprites.filter({$0.value != nil}).randomElement()?.value {
-                ImageLoader.fetchImage(from: URL(string:spriteURL)){ image in
-                    guard let image = image else {return }
-                    DispatchQueue.main.async {
-                        self.pokeImage.image = image
-                    }
-                }
-            }
-            
-            
+            self.pokeImage.image = pokemon.image
         } else {
             self.title = "Pokemon Search"
             idLabel?.text = ""
