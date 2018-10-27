@@ -10,11 +10,8 @@
 import UIKit
 
 class DetailViewController: UIViewController, UISearchBarDelegate {
-    
     var pokemonController: PokedexController?
-    var poke: Pokemon? {
-        return pokemonController?.pokemon
-    }
+    var poke: Pokemon?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,14 +19,17 @@ class DetailViewController: UIViewController, UISearchBarDelegate {
         updateViews()
     }
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchEntry = searchB.text else {return}
-        pokemonController?.fetchPokemon(name: searchEntry , completion: {(error) in
+        pokemonController?.fetchPokemon(name: searchEntry, completion: {
+            (pokemon, error) in
+            
             if let error = error {
                 NSLog("error getting pokemon:\(error)")
                 return
             }
+            
+            self.poke = pokemon
             
             DispatchQueue.main.async {
                 self.updateViews()
@@ -46,12 +46,9 @@ class DetailViewController: UIViewController, UISearchBarDelegate {
             saveButton.setTitle("Save Pokemon", for: .normal)
             
             if let spriteURL = pokemon.sprites.filter({$0.value != nil}).randomElement()?.value {
-                
                 ImageLoader.fetchImage(from: URL(string:spriteURL)){ image in
-                    
                     guard let image = image else {return }
                     DispatchQueue.main.async {
-                        
                         self.pokeImage.image = image
                     }
                 }
@@ -87,13 +84,9 @@ class DetailViewController: UIViewController, UISearchBarDelegate {
     
     
     @IBAction func savePokemon(_ sender: Any) {
-        
-        guard let p = poke else {return}
-        
-        
-        pokemonController?.savePokemons(pokemon: p)
-        
-        
+        if let poke = poke {
+            pokemonController?.savePokemons(pokemon: poke)
+        }
     }
     
     
@@ -103,10 +96,10 @@ class DetailViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var saveButton: UIButton!
 }
 
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
